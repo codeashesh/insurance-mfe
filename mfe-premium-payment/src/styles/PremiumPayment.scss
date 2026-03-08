@@ -1,0 +1,278 @@
+.premium-payment {
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 1.5rem;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* Payment Form */
+.payment-form-container {
+  width: 100%;
+}
+
+.payment-form-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 1.25rem;
+  }
+}
+
+.payment-form {
+  &__group {
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.35rem;
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #1a237e;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  &__summary {
+    background: #f5f7ff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-left: 4px solid #1a237e;
+  }
+
+  &__summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+
+    span {
+      color: #666;
+    }
+  }
+
+  &__amount {
+    color: #1a237e;
+    font-size: 1.1rem;
+  }
+
+  &__error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #2e7d32, #388e3c);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  &__spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: pay-spin 0.7s linear infinite;
+    display: inline-block;
+  }
+}
+
+@keyframes pay-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Receipt */
+.payment-receipt {
+  margin-top: 1.25rem;
+  border: 2px solid #2e7d32;
+  border-radius: 12px;
+  overflow: hidden;
+
+  &__header {
+    background: #e8f5e9;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    h4 {
+      margin: 0;
+      color: #2e7d32;
+      font-size: 1rem;
+    }
+  }
+
+  &__body {
+    padding: 1rem;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.35rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    span {
+      color: #666;
+    }
+
+    &--total {
+      border-top: 2px solid #e0e0e0;
+      border-bottom: none;
+      padding-top: 0.5rem;
+      margin-top: 0.25rem;
+
+      strong {
+        color: #2e7d32;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+/* Payment History */
+.payment-history {
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 1rem;
+  }
+
+  &__empty {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    color: #888;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s;
+
+    &:hover {
+      transform: translateX(4px);
+    }
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+  }
+
+  &__details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  &__policy {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  &__date {
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  &__receipt {
+    font-size: 0.75rem;
+    color: #aaa;
+    font-family: monospace;
+  }
+
+  &__amount {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #2e7d32;
+  }
+}

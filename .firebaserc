@@ -1,0 +1,21 @@
+{
+  "projects": {
+    "default": "insurance-mfe"
+  },
+  "targets": {
+    "insurance-mfe": {
+      "hosting": {
+        "container": [
+          "insurance-mfe"
+        ],
+        "policy": [
+          "insurance-mfe-policy"
+        ],
+        "payment": [
+          "insurance-mfe-payment"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
